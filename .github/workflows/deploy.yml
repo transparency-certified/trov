@@ -30,7 +30,7 @@ jobs:
         with: 
           image: craigwillis/widoco:latest
           options: -v ${{ github.workspace }}/0.1/trov.config:/usr/local/widoco/config/config.properties -v ${{ github.workspace }}/0.1/:/usr/local/widoco/in -v ${{ github.workspace }}:/usr/local/widoco/out
-          run: java -jar widoco.jar -ontFile in/trov.ttl -outFolder out -rewriteAll
+          run: java -jar widoco.jar -ontFile in/trov.ttl -outFolder out/0.1 -rewriteAll
 
       - name: Create index.html
         run: cp 0.1/index-en.html 0.1/index.html
