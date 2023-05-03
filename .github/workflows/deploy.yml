@@ -30,13 +30,13 @@ jobs:
         with: 
           image: craigwillis/widoco:latest
           options: -v ${{ github.workspace }}/0.1/trov.config:/usr/local/widoco/config/config.properties -v ${{ github.workspace }}/0.1/:/usr/local/widoco/in -v ${{ github.workspace }}:/usr/local/widoco/out
-          run: java -jar widoco.jar -ontFile in/trov.ttl -outFolder out/ -rewriteAll
-
-      - name: Create index.html
-        run: cp doc/index-en.html doc/index.html
+          run: |
+              java -jar widoco.jar -ontFile in/trov.ttl -outFolder out/widoco -rewriteAll
+              mv out/widoco/doc out/widoco/0.1
+              mv out/widoco/0.1/index-en.html out/widoco/0.1/index.html
 
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doc
+          publish_dir: ./widoco
