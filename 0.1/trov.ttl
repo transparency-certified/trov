@@ -1,5 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix trov: <https://w3id.org/trace/2023/05/trov#> .
 
 <https://w3id.org/trace/trov/0.1/>
   a owl:Ontology ;
@@ -7,3 +9,134 @@
   rdfs:comment "This document defines vocabulary for describing a Transparent Research Object (TRO)"@en ;
   rdfs:label "Transparent Research Object Vocabulary"@en ;
   owl:versionInfo "Version 0.1" .
+
+trov:ArtifactArrangement a rdfs:Class ;
+    rdfs:label "ArtifactArrangement" ;
+    rdfs:comment "A set of loci describing the location of one or more artifacts" .
+
+trov:ArtifactCollection a rdfs:Class ;
+    rdfs:label "ArtifactCollection" ;
+    rdfs:comment "Base class for collections of one or more artifacts." .
+
+trov:ArtifactComposition a rdfs:Class ;
+    rdfs:label "ArtifactComposition" ;
+    rdfs:comment "A set of artifacts described by a TRO." ;
+    rdfs:subClassOf trov:ArtifactCollection .
+
+trov:ArtifactLocus a rdfs:Class ;
+    rdfs:label "ArtifactLocus" ;
+    rdfs:comment "The location of a specific artifact." ;
+    rdfs:subClassOf trov:ArtifactCollection .
+
+trov:CanProvideInternetIsolation a rdfs:Class ;
+    rdfs:label "CanProvideInternetIsolation" ;
+    rdfs:comment "The capability to prevent Internet access during a TRP." ;
+    rdfs:subClassOf trov:TRSCapability .
+
+trov:CompositionFingerprint a rdfs:Class ;
+    rdfs:label "CompositionFingerprint" ;
+    rdfs:comment "Unique fingerprint of a particular artifact composition" .
+
+trov:EnforcesInternetIsolation a rdfs:Class ;
+    rdfs:label "EnforcesInternetIsolation" ;
+    rdfs:comment "The policy of always preventing Internet access during a TRP." ;
+    rdfs:subClassOf trov:TRSPolicy .
+
+trov:IncludesAllInputData a rdfs:Class ;
+    rdfs:label "IncludesAllInputData" ;
+    rdfs:comment "TRO composition includes all input data employed in creating the TRO." ;
+    rdfs:subClassOf trov:TROAttribute .
+
+trov:ResearchArtifact a rdfs:Class ;
+    rdfs:label "ResearchArtifact" ;
+    rdfs:comment "A research artifact described by a TRO." .
+
+trov:TREAttribute a rdfs:Class ;
+    rdfs:label "TREAttribute" ;
+    rdfs:comment "An attribute of a TRS, TRP, or TRO." .
+
+trov:TROAttribute a rdfs:Class ;
+    rdfs:label "TROAttribute" ;
+    rdfs:comment "An attribute of a particular TRO." ;
+    rdfs:subClassOf trov:TREAttribute .
+
+trov:TRSAttribute a rdfs:Class ;
+    rdfs:label "TRSAttribute" ;
+    rdfs:comment "An attribute of a TRS." ;
+    rdfs:subClassOf trov:TREAttribute .
+
+trov:TRSCapability a rdfs:Class ;
+    rdfs:label "TRSCapability" ;
+    rdfs:comment "A capability of a TRS." ;
+    rdfs:subClassOf trov:TRSAttribute .
+
+trov:TRSPolicy a rdfs:Class ;
+    rdfs:label "TRSPolicy" ;
+    rdfs:comment "A policy always enforced by a particular TRS." ;
+    rdfs:subClassOf trov:TRSCapability .
+
+trov:TimeStampingAuthority a rdfs:Class ;
+    rdfs:label "TimeStampingAuthority" ;
+    rdfs:comment "A timestamping authority trusted by a TRS." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TransparentResearchObject a rdfs:Class ;
+    rdfs:label "TransparentResearchObject" ;
+    rdfs:comment "A set of research artifacts produced by a TRP and signed by the performing TRS." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TrustedResearchElement a rdfs:Class ;
+    rdfs:label "TrustedResearchElement" ;
+    rdfs:comment "Common base class for TRSs, TRPs, and TROs." .
+
+trov:TrustedResearchPerformance a rdfs:Class ;
+    rdfs:label "TrustedResearchPerformance" ;
+    rdfs:comment "A set of research operations performed by a TRS.",
+        "An execution of a research process" ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TrustedResearchSystem a rdfs:Class ;
+    rdfs:label "TrustedResearchSystem" ;
+    rdfs:comment "A system certified to perform TRPs and assemble TROs." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:hasArrangement a rdf:Property ;
+    rdfs:label "hasArrangement" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:ArtifactArrangement .
+
+trov:hasArtifact a rdf:Property ;
+    rdfs:label "hasArtifact" ;
+    rdfs:domain trov:ArtifactCollection ;
+    rdfs:range trov:ResearchArtifact .
+
+trov:hasComposition a rdf:Property ;
+    rdfs:label "hasComposition" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:ArtifactComposition .
+
+trov:hasFingerprint a rdf:Property ;
+    rdfs:label "hasFingerprint" ;
+    rdfs:domain trov:ArtifactComposition ;
+    rdfs:range trov:CompositionFingerprint .
+
+trov:hasLocation a rdf:Property ;
+    rdfs:label "hasLocus" ;
+    rdfs:domain trov:ArtifactLocus ;
+    rdfs:range rdfs:Literal .
+
+trov:hasLocus a rdf:Property ;
+    rdfs:label "hasLocus" ;
+    rdfs:domain trov:ArtifactArrangement ;
+    rdfs:range trov:ArtifactLocus .
+
+trov:wasAssembledBy a rdf:Property ;
+    rdfs:label "wasAssembledBy" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:TrustedResearchSystem .
+
+trov:wasTimestampedBy a rdf:Property ;
+    rdfs:label "wasTimestampedBy" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:TimeStampingAuthority .
+
