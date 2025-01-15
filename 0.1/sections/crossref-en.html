@@ -20,6 +20,22 @@ This section provides details for each class and property defined by Transparent
             title="https://w3id.org/trace/2023/05/trov#ArtifactLocus">ArtifactLocus</a>
       </li>
       <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#CanExcludeInputs"
+            title="https://w3id.org/trace/2023/05/trov#CanExcludeInputs">CanExcludeInputs</a>
+      </li>
+      <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#CanExcludeOutputs"
+            title="https://w3id.org/trace/2023/05/trov#CanExcludeOutputs">CanExcludeOutputs</a>
+      </li>
+      <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment"
+            title="https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment">CanIsolateEnvironment</a>
+      </li>
+      <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention"
+            title="https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention">CanPreventAuthorIntervention</a>
+      </li>
+      <li>
          <a href="#https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation"
             title="https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation">CanProvideInternetIsolation</a>
       </li>
@@ -28,8 +44,16 @@ This section provides details for each class and property defined by Transparent
             title="https://w3id.org/trace/2023/05/trov#CompositionFingerprint">CompositionFingerprint</a>
       </li>
       <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation"
+            title="https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation">EnforcesEnvironmentIsolation</a>
+      </li>
+      <li>
          <a href="#https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation"
             title="https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation">EnforcesInternetIsolation</a>
+      </li>
+      <li>
+         <a href="#https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution"
+            title="https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution">EnforcesNoninteractiveExecution</a>
       </li>
       <li>
          <a href="#https://w3id.org/trace/2023/05/trov#IncludesAllInputData"
@@ -186,6 +210,85 @@ This section provides details for each class and property defined by Transparent
          </dd>
       </dl>
    </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#CanExcludeInputs">
+      <h3>CanExcludeInputs<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#CanExcludeInputs</p>
+      <div class="comment">
+         <span class="markdown">The capability to exclude input data from a TRO created during a TRP.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSCapability"
+               title="https://w3id.org/trace/2023/05/trov#TRSCapability">TRSCapability</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#CanExcludeOutputs">
+      <h3>CanExcludeOutputs<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#CanExcludeOutputs</p>
+      <div class="comment">
+         <span class="markdown">The capability to exclude output data from a TRO created during a TRP.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSCapability"
+               title="https://w3id.org/trace/2023/05/trov#TRSCapability">TRSCapability</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment">
+      <h3>CanIsolateEnvironment<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment</p>
+      <div class="comment">
+         <span class="markdown">The capability to prevent access to the host environment during a TRP.
+                    Usually indicates that the TRP is executed in a sandbox or container.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSCapability"
+               title="https://w3id.org/trace/2023/05/trov#TRSCapability">TRSCapability</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention">
+      <h3>CanPreventAuthorIntervention<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention</p>
+      <div class="comment">
+         <span class="markdown">The capability to prevent author intervention during a TRP.
+                    Usually indicates that the TRP is fully automated or performed by
+                    an independent agent.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSCapability"
+               title="https://w3id.org/trace/2023/05/trov#TRSCapability">TRSCapability</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation">
       <h3>CanProvideInternetIsolation<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -224,6 +327,24 @@ This section provides details for each class and property defined by Transparent
          </dd>
       </dl>
    </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation">
+      <h3>EnforcesEnvironmentIsolation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation</p>
+      <div class="comment">
+         <span class="markdown">The policy of always isolating the host environment during a TRP.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSPolicy" title="https://w3id.org/trace/2023/05/trov#TRSPolicy">TRSPolicy</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation">
       <h3>EnforcesInternetIsolation<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -233,6 +354,24 @@ This section provides details for each class and property defined by Transparent
          <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation</p>
       <div class="comment">
          <span class="markdown">The policy of always preventing Internet access during a TRP.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://w3id.org/trace/2023/05/trov#TRSPolicy" title="https://w3id.org/trace/2023/05/trov#TRSPolicy">TRSPolicy</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution">
+      <h3>EnforcesNoninteractiveExecution<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution</p>
+      <div class="comment">
+         <span class="markdown">The policy of always executing a TRP in a non-interactive mode.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
@@ -419,7 +558,15 @@ This section provides details for each class and property defined by Transparent
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation"
+            <a href="#https://w3id.org/trace/2023/05/trov#CanExcludeInputs"
+               title="https://w3id.org/trace/2023/05/trov#CanExcludeInputs">CanExcludeInputs</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#CanExcludeOutputs"
+               title="https://w3id.org/trace/2023/05/trov#CanExcludeOutputs">CanExcludeOutputs</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment"
+               title="https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment">CanIsolateEnvironment</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention"
+               title="https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention">CanPreventAuthorIntervention</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation"
                title="https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation">CanProvideInternetIsolation</a>
             <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#TRSPolicy" title="https://w3id.org/trace/2023/05/trov#TRSPolicy">TRSPolicy</a>
             <sup class="type-c" title="class">c</sup>
@@ -445,8 +592,12 @@ This section provides details for each class and property defined by Transparent
          </dd>
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation"
+            <a href="#https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation"
+               title="https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation">EnforcesEnvironmentIsolation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation"
                title="https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation">EnforcesInternetIsolation</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution"
+               title="https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution">EnforcesNoninteractiveExecution</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>

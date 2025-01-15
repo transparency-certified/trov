@@ -181,6 +181,53 @@
     
 
 
+    <!-- https://w3id.org/trace/2023/05/trov#CanExcludeInputs -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#CanExcludeInputs">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSCapability"/>
+        <rdfs:comment>The capability to exclude input data from a TRO created during a TRP.</rdfs:comment>
+        <rdfs:label>CanExcludeInputs</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/trace/2023/05/trov#CanExcludeOutputs -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#CanExcludeOutputs">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSCapability"/>
+        <rdfs:comment>The capability to exclude output data from a TRO created during a TRP.</rdfs:comment>
+        <rdfs:label>CanExcludeOutputs</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSCapability"/>
+        <rdfs:comment>The capability to prevent access to the host environment during a TRP.
+                    Usually indicates that the TRP is executed in a sandbox or container.</rdfs:comment>
+        <rdfs:label>CanIsolateEnvironment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSCapability"/>
+        <rdfs:comment>The capability to prevent author intervention during a TRP.
+                    Usually indicates that the TRP is fully automated or performed by
+                    an independent agent.</rdfs:comment>
+        <rdfs:label>CanPreventAuthorIntervention</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation -->
 
 
@@ -202,6 +249,17 @@
     
 
 
+    <!-- https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSPolicy"/>
+        <rdfs:comment>The policy of always isolating the host environment during a TRP.</rdfs:comment>
+        <rdfs:label>EnforcesEnvironmentIsolation</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation -->
 
 
@@ -209,6 +267,17 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSPolicy"/>
         <rdfs:comment>The policy of always preventing Internet access during a TRP.</rdfs:comment>
         <rdfs:label>EnforcesInternetIsolation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution -->
+
+
+    <owl:Class rdf:about="https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/trace/2023/05/trov#TRSPolicy"/>
+        <rdfs:comment>The policy of always executing a TRP in a non-interactive mode.</rdfs:comment>
+        <rdfs:label>EnforcesNoninteractiveExecution</rdfs:label>
     </owl:Class>
     
 

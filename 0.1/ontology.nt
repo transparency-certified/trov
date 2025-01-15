@@ -100,6 +100,30 @@
 <https://w3id.org/trace/2023/05/trov#ArtifactLocus> <http://www.w3.org/2000/01/rdf-schema#comment> "The location of a specific artifact." .
 <https://w3id.org/trace/2023/05/trov#ArtifactLocus> <http://www.w3.org/2000/01/rdf-schema#label> "ArtifactLocus" .
 # 
+# https://w3id.org/trace/2023/05/trov#CanExcludeInputs
+<https://w3id.org/trace/2023/05/trov#CanExcludeInputs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#CanExcludeInputs> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSCapability> .
+<https://w3id.org/trace/2023/05/trov#CanExcludeInputs> <http://www.w3.org/2000/01/rdf-schema#comment> "The capability to exclude input data from a TRO created during a TRP." .
+<https://w3id.org/trace/2023/05/trov#CanExcludeInputs> <http://www.w3.org/2000/01/rdf-schema#label> "CanExcludeInputs" .
+# 
+# https://w3id.org/trace/2023/05/trov#CanExcludeOutputs
+<https://w3id.org/trace/2023/05/trov#CanExcludeOutputs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#CanExcludeOutputs> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSCapability> .
+<https://w3id.org/trace/2023/05/trov#CanExcludeOutputs> <http://www.w3.org/2000/01/rdf-schema#comment> "The capability to exclude output data from a TRO created during a TRP." .
+<https://w3id.org/trace/2023/05/trov#CanExcludeOutputs> <http://www.w3.org/2000/01/rdf-schema#label> "CanExcludeOutputs" .
+# 
+# https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment
+<https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSCapability> .
+<https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment> <http://www.w3.org/2000/01/rdf-schema#comment> "The capability to prevent access to the host environment during a TRP.\n                    Usually indicates that the TRP is executed in a sandbox or container." .
+<https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment> <http://www.w3.org/2000/01/rdf-schema#label> "CanIsolateEnvironment" .
+# 
+# https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention
+<https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSCapability> .
+<https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention> <http://www.w3.org/2000/01/rdf-schema#comment> "The capability to prevent author intervention during a TRP.\n                    Usually indicates that the TRP is fully automated or performed by\n                    an independent agent." .
+<https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention> <http://www.w3.org/2000/01/rdf-schema#label> "CanPreventAuthorIntervention" .
+# 
 # https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation
 <https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSCapability> .
@@ -111,11 +135,23 @@
 <https://w3id.org/trace/2023/05/trov#CompositionFingerprint> <http://www.w3.org/2000/01/rdf-schema#comment> "Unique fingerprint of a particular artifact composition" .
 <https://w3id.org/trace/2023/05/trov#CompositionFingerprint> <http://www.w3.org/2000/01/rdf-schema#label> "CompositionFingerprint" .
 # 
+# https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation
+<https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSPolicy> .
+<https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation> <http://www.w3.org/2000/01/rdf-schema#comment> "The policy of always isolating the host environment during a TRP." .
+<https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation> <http://www.w3.org/2000/01/rdf-schema#label> "EnforcesEnvironmentIsolation" .
+# 
 # https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation
 <https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSPolicy> .
 <https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation> <http://www.w3.org/2000/01/rdf-schema#comment> "The policy of always preventing Internet access during a TRP." .
 <https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation> <http://www.w3.org/2000/01/rdf-schema#label> "EnforcesInternetIsolation" .
+# 
+# https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution
+<https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/trace/2023/05/trov#TRSPolicy> .
+<https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution> <http://www.w3.org/2000/01/rdf-schema#comment> "The policy of always executing a TRP in a non-interactive mode." .
+<https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution> <http://www.w3.org/2000/01/rdf-schema#label> "EnforcesNoninteractiveExecution" .
 # 
 # https://w3id.org/trace/2023/05/trov#IncludesAllInputData
 <https://w3id.org/trace/2023/05/trov#IncludesAllInputData> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

@@ -41,6 +41,54 @@
     "@id" : "https://w3id.org/trace/2023/05/trov#ArtifactCollection"
   } ]
 }, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#CanExcludeInputs",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The capability to exclude input data from a TRO created during a TRP."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "CanExcludeInputs"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSCapability"
+  } ]
+}, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#CanExcludeOutputs",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The capability to exclude output data from a TRO created during a TRP."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "CanExcludeOutputs"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSCapability"
+  } ]
+}, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The capability to prevent access to the host environment during a TRP.\n                    Usually indicates that the TRP is executed in a sandbox or container."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "CanIsolateEnvironment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSCapability"
+  } ]
+}, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The capability to prevent author intervention during a TRP.\n                    Usually indicates that the TRP is fully automated or performed by\n                    an independent agent."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "CanPreventAuthorIntervention"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSCapability"
+  } ]
+}, {
   "@id" : "https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -62,6 +110,18 @@
     "@value" : "CompositionFingerprint"
   } ]
 }, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The policy of always isolating the host environment during a TRP."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "EnforcesEnvironmentIsolation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSPolicy"
+  } ]
+}, {
   "@id" : "https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -69,6 +129,18 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "EnforcesInternetIsolation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/trace/2023/05/trov#TRSPolicy"
+  } ]
+}, {
+  "@id" : "https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The policy of always executing a TRP in a non-interactive mode."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "EnforcesNoninteractiveExecution"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "https://w3id.org/trace/2023/05/trov#TRSPolicy"

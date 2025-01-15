@@ -106,6 +106,37 @@
                                                     rdfs:label "ArtifactLocus" .
 
 
+###  https://w3id.org/trace/2023/05/trov#CanExcludeInputs
+<https://w3id.org/trace/2023/05/trov#CanExcludeInputs> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSCapability> ;
+                                                       rdfs:comment "The capability to exclude input data from a TRO created during a TRP." ;
+                                                       rdfs:label "CanExcludeInputs" .
+
+
+###  https://w3id.org/trace/2023/05/trov#CanExcludeOutputs
+<https://w3id.org/trace/2023/05/trov#CanExcludeOutputs> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSCapability> ;
+                                                        rdfs:comment "The capability to exclude output data from a TRO created during a TRP." ;
+                                                        rdfs:label "CanExcludeOutputs" .
+
+
+###  https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment
+<https://w3id.org/trace/2023/05/trov#CanIsolateEnvironment> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSCapability> ;
+                                                            rdfs:comment """The capability to prevent access to the host environment during a TRP.
+                    Usually indicates that the TRP is executed in a sandbox or container.""" ;
+                                                            rdfs:label "CanIsolateEnvironment" .
+
+
+###  https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention
+<https://w3id.org/trace/2023/05/trov#CanPreventAuthorIntervention> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSCapability> ;
+                                                                   rdfs:comment """The capability to prevent author intervention during a TRP.
+                    Usually indicates that the TRP is fully automated or performed by
+                    an independent agent.""" ;
+                                                                   rdfs:label "CanPreventAuthorIntervention" .
+
+
 ###  https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation
 <https://w3id.org/trace/2023/05/trov#CanProvideInternetIsolation> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSCapability> ;
@@ -119,11 +150,25 @@
                                                              rdfs:label "CompositionFingerprint" .
 
 
+###  https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation
+<https://w3id.org/trace/2023/05/trov#EnforcesEnvironmentIsolation> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSPolicy> ;
+                                                                   rdfs:comment "The policy of always isolating the host environment during a TRP." ;
+                                                                   rdfs:label "EnforcesEnvironmentIsolation" .
+
+
 ###  https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation
 <https://w3id.org/trace/2023/05/trov#EnforcesInternetIsolation> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSPolicy> ;
                                                                 rdfs:comment "The policy of always preventing Internet access during a TRP." ;
                                                                 rdfs:label "EnforcesInternetIsolation" .
+
+
+###  https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution
+<https://w3id.org/trace/2023/05/trov#EnforcesNoninteractiveExecution> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <https://w3id.org/trace/2023/05/trov#TRSPolicy> ;
+                                                                      rdfs:comment "The policy of always executing a TRP in a non-interactive mode." ;
+                                                                      rdfs:label "EnforcesNoninteractiveExecution" .
 
 
 ###  https://w3id.org/trace/2023/05/trov#IncludesAllInputData
