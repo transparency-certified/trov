@@ -28,6 +28,29 @@ trov:ArtifactLocus a rdfs:Class ;
     rdfs:comment "The location of a specific artifact." ;
     rdfs:subClassOf trov:ArtifactCollection .
 
+trov:CanIsolateEnvironment a rdfs:Class ;
+    rdfs:label "CanIsolateEnvironment" ;
+    rdfs:comment '''The capability to prevent access to the host environment during a TRP.
+                    Usually indicates that the TRP is executed in a sandbox or container.''' ;
+    rdfs:subClassOf trov:TRSCapability .
+
+trov:CanPreventAuthorIntervention a rdfs:Class ;
+    rdfs:label "CanPreventAuthorIntervention" ;
+    rdfs:comment '''The capability to prevent author intervention during a TRP.
+                    Usually indicates that the TRP is fully automated or performed by
+                    an independent agent.''' ;
+    rdfs:subClassOf trov:TRSCapability .
+
+trov:CanExcludeInputs a rdfs:Class ;
+    rdfs:label "CanExcludeInputs" ;
+    rdfs:comment "The capability to exclude input data from a TRO created during a TRP." ;
+    rdfs:subClassOf trov:TRSCapability .
+
+trov:CanExcludeOutputs a rdfs:Class ;
+    rdfs:label "CanExcludeOutputs" ;
+    rdfs:comment "The capability to exclude output data from a TRO created during a TRP." ;
+    rdfs:subClassOf trov:TRSCapability .
+
 trov:CanProvideInternetIsolation a rdfs:Class ;
     rdfs:label "CanProvideInternetIsolation" ;
     rdfs:comment "The capability to prevent Internet access during a TRP." ;
@@ -37,9 +60,19 @@ trov:CompositionFingerprint a rdfs:Class ;
     rdfs:label "CompositionFingerprint" ;
     rdfs:comment "Unique fingerprint of a particular artifact composition" .
 
+trov:EnforcesNoninteractiveExecution a rdfs:Class ;
+    rdfs:label "EnforcesNoninteractiveExecution" ;
+    rdfs:comment "The policy of always executing a TRP in a non-interactive mode." ;
+    rdfs:subClassOf trov:TRSPolicy .
+
 trov:EnforcesInternetIsolation a rdfs:Class ;
     rdfs:label "EnforcesInternetIsolation" ;
     rdfs:comment "The policy of always preventing Internet access during a TRP." ;
+    rdfs:subClassOf trov:TRSPolicy .
+
+trov:EnforcesEnvironmentIsolation a rdfs:Class ;
+    rdfs:label "EnforcesEnvironmentIsolation" ;
+    rdfs:comment "The policy of always isolating the host environment during a TRP." ;
     rdfs:subClassOf trov:TRSPolicy .
 
 trov:IncludesAllInputData a rdfs:Class ;
