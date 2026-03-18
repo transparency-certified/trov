@@ -3,12 +3,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix trov: <https://w3id.org/trace/2023/05/trov#> .
 
-<https://w3id.org/trace/trov/0.1/>
+<https://w3id.org/trace/2023/05/trov>
   a owl:Ontology ;
-  owl:versionIRI <https://w3id.org/trace/trov/0.1/> ;
+  owl:versionIRI <https://w3id.org/trace/2023/05/trov> ;
   rdfs:comment "This document defines vocabulary for describing a Transparent Research Object (TRO)"@en ;
-  rdfs:label "Transparent Research Object Vocabulary"@en ;
-  owl:versionInfo "Version 0.1" .
+  rdfs:label "Transparent Research Object Vocabulary (pre-release)"@en ;
+  owl:versionInfo "Pre-release (2023/05)" .
 
 trov:ArtifactArrangement a rdfs:Class ;
     rdfs:label "ArtifactArrangement" ;
