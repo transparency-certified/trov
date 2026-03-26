@@ -1,18 +1,46 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix trov: <https://w3id.org/trace/2023/05/trov#> .
+@prefix trov: <https://w3id.org/trace/trov/0.1#> .
 
 <https://w3id.org/trace/trov/0.1/>
   a owl:Ontology ;
   owl:versionIRI <https://w3id.org/trace/trov/0.1/> ;
-  rdfs:comment "This document defines vocabulary for describing a Transparent Research Object (TRO)"@en ;
+  rdfs:comment "Vocabulary for describing Transparent Research Objects (TROs), the systems that produce them, and the transparency conditions under which they were created."@en ;
   rdfs:label "Transparent Research Object Vocabulary"@en ;
-  owl:versionInfo "Version 0.1" .
+  owl:versionInfo "Version 0.1 (draft)" .
 
-trov:ArtifactArrangement a rdfs:Class ;
-    rdfs:label "ArtifactArrangement" ;
-    rdfs:comment "A set of loci describing the location of one or more artifacts" .
+# =============================================================================
+# Classes: Core Entities
+# =============================================================================
+
+trov:TrustedResearchElement a rdfs:Class ;
+    rdfs:label "TrustedResearchElement" ;
+    rdfs:comment "Common base class for TRSs, TRPs, and TROs." .
+
+trov:TransparentResearchObject a rdfs:Class ;
+    rdfs:label "TransparentResearchObject" ;
+    rdfs:comment "A set of research artifacts produced by one or more TRPs and signed by the assembling TRS." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TrustedResearchSystem a rdfs:Class ;
+    rdfs:label "TrustedResearchSystem" ;
+    rdfs:comment "A system that performs TRPs and assembles TROs." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TrustedResearchPerformance a rdfs:Class ;
+    rdfs:label "TrustedResearchPerformance" ;
+    rdfs:comment "A supervised unit of work conducted by a TRS. The centerpiece of the TRACE conceptual model." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+trov:TimeStampingAuthority a rdfs:Class ;
+    rdfs:label "TimeStampingAuthority" ;
+    rdfs:comment "An RFC 3161 timestamping authority trusted by a TRS." ;
+    rdfs:subClassOf trov:TrustedResearchElement .
+
+# =============================================================================
+# Classes: Artifacts and Compositions
+# =============================================================================
 
 trov:ArtifactCollection a rdfs:Class ;
     rdfs:label "ArtifactCollection" ;
@@ -20,78 +48,36 @@ trov:ArtifactCollection a rdfs:Class ;
 
 trov:ArtifactComposition a rdfs:Class ;
     rdfs:label "ArtifactComposition" ;
-    rdfs:comment "A set of artifacts described by a TRO." ;
+    rdfs:comment "The set of all digital artifacts described by a TRO, identified by a composition fingerprint." ;
     rdfs:subClassOf trov:ArtifactCollection .
-
-trov:ArtifactLocus a rdfs:Class ;
-    rdfs:label "ArtifactLocus" ;
-    rdfs:comment "The location of a specific artifact." ;
-    rdfs:subClassOf trov:ArtifactCollection .
-
-trov:CanIsolateEnvironment a rdfs:Class ;
-    rdfs:label "CanIsolateEnvironment" ;
-    rdfs:comment '''The capability to prevent access to the host environment during a TRP.
-                    Usually indicates that the TRP is executed in a sandbox or container.''' ;
-    rdfs:subClassOf trov:TRSCapability .
-
-trov:CanPreventAuthorIntervention a rdfs:Class ;
-    rdfs:label "CanPreventAuthorIntervention" ;
-    rdfs:comment '''The capability to prevent author intervention during a TRP.
-                    Usually indicates that the TRP is fully automated or performed by
-                    an independent agent.''' ;
-    rdfs:subClassOf trov:TRSCapability .
-
-trov:CanExcludeInputs a rdfs:Class ;
-    rdfs:label "CanExcludeInputs" ;
-    rdfs:comment "The capability to exclude input data from a TRO created during a TRP." ;
-    rdfs:subClassOf trov:TRSCapability .
-
-trov:CanExcludeOutputs a rdfs:Class ;
-    rdfs:label "CanExcludeOutputs" ;
-    rdfs:comment "The capability to exclude output data from a TRO created during a TRP." ;
-    rdfs:subClassOf trov:TRSCapability .
-
-trov:CanProvideInternetIsolation a rdfs:Class ;
-    rdfs:label "CanProvideInternetIsolation" ;
-    rdfs:comment "The capability to prevent Internet access during a TRP." ;
-    rdfs:subClassOf trov:TRSCapability .
-
-trov:CompositionFingerprint a rdfs:Class ;
-    rdfs:label "CompositionFingerprint" ;
-    rdfs:comment "Unique fingerprint of a particular artifact composition" .
-
-trov:EnforcesNoninteractiveExecution a rdfs:Class ;
-    rdfs:label "EnforcesNoninteractiveExecution" ;
-    rdfs:comment "The policy of always executing a TRP in a non-interactive mode." ;
-    rdfs:subClassOf trov:TRSPolicy .
-
-trov:EnforcesInternetIsolation a rdfs:Class ;
-    rdfs:label "EnforcesInternetIsolation" ;
-    rdfs:comment "The policy of always preventing Internet access during a TRP." ;
-    rdfs:subClassOf trov:TRSPolicy .
-
-trov:EnforcesEnvironmentIsolation a rdfs:Class ;
-    rdfs:label "EnforcesEnvironmentIsolation" ;
-    rdfs:comment "The policy of always isolating the host environment during a TRP." ;
-    rdfs:subClassOf trov:TRSPolicy .
-
-trov:IncludesAllInputData a rdfs:Class ;
-    rdfs:label "IncludesAllInputData" ;
-    rdfs:comment "TRO composition includes all input data employed in creating the TRO." ;
-    rdfs:subClassOf trov:TROAttribute .
 
 trov:ResearchArtifact a rdfs:Class ;
     rdfs:label "ResearchArtifact" ;
-    rdfs:comment "A research artifact described by a TRO." .
+    rdfs:comment "A digital object (file, dataset, or bitstream) identified by a content hash." .
+
+trov:CompositionFingerprint a rdfs:Class ;
+    rdfs:label "CompositionFingerprint" ;
+    rdfs:comment "A hash computed over the sorted hashes of all artifacts in a composition." .
+
+# =============================================================================
+# Classes: Arrangements and Locations
+# =============================================================================
+
+trov:ArtifactArrangement a rdfs:Class ;
+    rdfs:label "ArtifactArrangement" ;
+    rdfs:comment "A named collection of artifact locations. Arrangements are linked to performances as inputs or outputs." .
+
+trov:ArtifactLocation a rdfs:Class ;
+    rdfs:label "ArtifactLocation" ;
+    rdfs:comment "The placement of a specific artifact within an arrangement. Links one artifact to one resource path." .
+
+# =============================================================================
+# Classes: Warrant Chain — Attributes and Capabilities
+# =============================================================================
 
 trov:TREAttribute a rdfs:Class ;
     rdfs:label "TREAttribute" ;
-    rdfs:comment "An attribute of a TRS, TRP, or TRO." .
-
-trov:TROAttribute a rdfs:Class ;
-    rdfs:label "TROAttribute" ;
-    rdfs:comment "An attribute of a particular TRO." ;
-    rdfs:subClassOf trov:TREAttribute .
+    rdfs:comment "Base class for attributes of a TRS, TRP, or TRO." .
 
 trov:TRSAttribute a rdfs:Class ;
     rdfs:label "TRSAttribute" ;
@@ -100,76 +86,278 @@ trov:TRSAttribute a rdfs:Class ;
 
 trov:TRSCapability a rdfs:Class ;
     rdfs:label "TRSCapability" ;
-    rdfs:comment "A capability of a TRS." ;
+    rdfs:comment "A declared ability of a TRS to enforce a specific transparency condition." ;
     rdfs:subClassOf trov:TRSAttribute .
 
 trov:TRSPolicy a rdfs:Class ;
     rdfs:label "TRSPolicy" ;
-    rdfs:comment "A policy always enforced by a particular TRS." ;
+    rdfs:comment "A TRS-level assertion about a capability. Under redesign — see TROV vocabulary documentation." ;
     rdfs:subClassOf trov:TRSCapability .
 
-trov:TimeStampingAuthority a rdfs:Class ;
-    rdfs:label "TimeStampingAuthority" ;
-    rdfs:comment "A timestamping authority trusted by a TRS." ;
-    rdfs:subClassOf trov:TrustedResearchElement .
+trov:TRPAttribute a rdfs:Class ;
+    rdfs:label "TRPAttribute" ;
+    rdfs:comment "A transparency claim about the conditions under which a specific TRP was conducted." ;
+    rdfs:subClassOf trov:TREAttribute .
 
-trov:TransparentResearchObject a rdfs:Class ;
-    rdfs:label "TransparentResearchObject" ;
-    rdfs:comment "A set of research artifacts produced by a TRP and signed by the performing TRS." ;
-    rdfs:subClassOf trov:TrustedResearchElement .
+trov:TROAttribute a rdfs:Class ;
+    rdfs:label "TROAttribute" ;
+    rdfs:comment "A transparency claim about a TRO as a whole, warranted by attributes of its constituent TRPs." ;
+    rdfs:subClassOf trov:TREAttribute .
 
-trov:TrustedResearchElement a rdfs:Class ;
-    rdfs:label "TrustedResearchElement" ;
-    rdfs:comment "Common base class for TRSs, TRPs, and TROs." .
+# =============================================================================
+# Properties: TRO
+# =============================================================================
 
-trov:TrustedResearchPerformance a rdfs:Class ;
-    rdfs:label "TrustedResearchPerformance" ;
-    rdfs:comment "A set of research operations performed by a TRS.",
-        "An execution of a research process" ;
-    rdfs:subClassOf trov:TrustedResearchElement .
-
-trov:TrustedResearchSystem a rdfs:Class ;
-    rdfs:label "TrustedResearchSystem" ;
-    rdfs:comment "A system certified to perform TRPs and assemble TROs." ;
-    rdfs:subClassOf trov:TrustedResearchElement .
-
-trov:hasArrangement a rdf:Property ;
-    rdfs:label "hasArrangement" ;
+trov:vocabularyVersion a rdf:Property ;
+    rdfs:label "vocabularyVersion" ;
+    rdfs:comment "The TROV vocabulary version this declaration conforms to." ;
     rdfs:domain trov:TransparentResearchObject ;
-    rdfs:range trov:ArtifactArrangement .
-
-trov:hasArtifact a rdf:Property ;
-    rdfs:label "hasArtifact" ;
-    rdfs:domain trov:ArtifactCollection ;
-    rdfs:range trov:ResearchArtifact .
-
-trov:hasComposition a rdf:Property ;
-    rdfs:label "hasComposition" ;
-    rdfs:domain trov:TransparentResearchObject ;
-    rdfs:range trov:ArtifactComposition .
-
-trov:hasFingerprint a rdf:Property ;
-    rdfs:label "hasFingerprint" ;
-    rdfs:domain trov:ArtifactComposition ;
-    rdfs:range trov:CompositionFingerprint .
-
-trov:hasLocation a rdf:Property ;
-    rdfs:label "hasLocus" ;
-    rdfs:domain trov:ArtifactLocus ;
     rdfs:range rdfs:Literal .
-
-trov:hasLocus a rdf:Property ;
-    rdfs:label "hasLocus" ;
-    rdfs:domain trov:ArtifactArrangement ;
-    rdfs:range trov:ArtifactLocus .
 
 trov:wasAssembledBy a rdf:Property ;
     rdfs:label "wasAssembledBy" ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TrustedResearchSystem .
 
+trov:createdWith a rdf:Property ;
+    rdfs:label "createdWith" ;
+    rdfs:comment "Software tool that generated this TRO declaration (optional)." ;
+    rdfs:domain trov:TransparentResearchObject .
+
 trov:wasTimestampedBy a rdf:Property ;
     rdfs:label "wasTimestampedBy" ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TimeStampingAuthority .
 
+trov:hasComposition a rdf:Property ;
+    rdfs:label "hasComposition" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:ArtifactComposition .
+
+trov:hasArrangement a rdf:Property ;
+    rdfs:label "hasArrangement" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:ArtifactArrangement .
+
+trov:hasPerformance a rdf:Property ;
+    rdfs:label "hasPerformance" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:TrustedResearchPerformance .
+
+trov:hasAttribute a rdf:Property ;
+    rdfs:label "hasAttribute" ;
+    rdfs:domain trov:TransparentResearchObject ;
+    rdfs:range trov:TROAttribute .
+
+# =============================================================================
+# Properties: TRS
+# =============================================================================
+
+trov:hasCapability a rdf:Property ;
+    rdfs:label "hasCapability" ;
+    rdfs:domain trov:TrustedResearchSystem ;
+    rdfs:range trov:TRSCapability .
+
+trov:publicKey a rdf:Property ;
+    rdfs:label "publicKey" ;
+    rdfs:comment "The TRS's public key. Required for GPG signing. Not needed for X.509/CMS." ;
+    rdfs:domain trov:TrustedResearchSystem ;
+    rdfs:range rdfs:Literal .
+
+trov:customTerm a rdf:Property ;
+    rdfs:label "customTerm" ;
+    rdfs:comment "Declares a custom term that extends a TROV class." ;
+    rdfs:domain trov:TrustedResearchSystem .
+
+# =============================================================================
+# Properties: TRP
+# =============================================================================
+
+trov:wasConductedBy a rdf:Property ;
+    rdfs:label "wasConductedBy" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range trov:TrustedResearchSystem .
+
+trov:accessedArrangement a rdf:Property ;
+    rdfs:label "accessedArrangement" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range trov:ArtifactArrangement .
+
+trov:contributedToArrangement a rdf:Property ;
+    rdfs:label "contributedToArrangement" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range trov:ArtifactArrangement .
+
+trov:hasPerformanceAttribute a rdf:Property ;
+    rdfs:label "hasPerformanceAttribute" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range trov:TRPAttribute .
+
+trov:startedAtTime a rdf:Property ;
+    rdfs:label "startedAtTime" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range rdfs:Literal .
+
+trov:endedAtTime a rdf:Property ;
+    rdfs:label "endedAtTime" ;
+    rdfs:domain trov:TrustedResearchPerformance ;
+    rdfs:range rdfs:Literal .
+
+# =============================================================================
+# Properties: Composition and Artifact
+# =============================================================================
+
+trov:hasArtifact a rdf:Property ;
+    rdfs:label "hasArtifact" ;
+    rdfs:domain trov:ArtifactComposition ;
+    rdfs:range trov:ResearchArtifact .
+
+trov:hasFingerprint a rdf:Property ;
+    rdfs:label "hasFingerprint" ;
+    rdfs:domain trov:ArtifactComposition ;
+    rdfs:range trov:CompositionFingerprint .
+
+trov:hash a rdf:Property ;
+    rdfs:label "hash" ;
+    rdfs:comment "One or more hashes of an artifact's contents or of a composition's sorted artifact hash values." .
+
+trov:hashAlgorithm a rdf:Property ;
+    rdfs:label "hashAlgorithm" ;
+    rdfs:comment "The algorithm used to compute the hash (e.g. sha256, hmac-sha256)." ;
+    rdfs:range rdfs:Literal .
+
+trov:hashValue a rdf:Property ;
+    rdfs:label "hashValue" ;
+    rdfs:comment "The computed hash value." ;
+    rdfs:range rdfs:Literal .
+
+trov:mimeType a rdf:Property ;
+    rdfs:label "mimeType" ;
+    rdfs:comment "The MIME type of an artifact." ;
+    rdfs:domain trov:ResearchArtifact ;
+    rdfs:range rdfs:Literal .
+
+# =============================================================================
+# Properties: Arrangement and Location
+# =============================================================================
+
+trov:hasArtifactLocation a rdf:Property ;
+    rdfs:label "hasArtifactLocation" ;
+    rdfs:domain trov:ArtifactArrangement ;
+    rdfs:range trov:ArtifactLocation .
+
+trov:artifact a rdf:Property ;
+    rdfs:label "artifact" ;
+    rdfs:comment "Links a location to the artifact placed there." ;
+    rdfs:domain trov:ArtifactLocation ;
+    rdfs:range trov:ResearchArtifact .
+
+trov:path a rdf:Property ;
+    rdfs:label "path" ;
+    rdfs:comment "The resource path for the artifact within this arrangement." ;
+    rdfs:domain trov:ArtifactLocation ;
+    rdfs:range rdfs:Literal .
+
+# =============================================================================
+# Properties: Warrant Chain
+# =============================================================================
+
+trov:warrantedBy a rdf:Property ;
+    rdfs:label "warrantedBy" ;
+    rdfs:comment "Links a transparency attribute to the capability or attribute that warrants it." .
+
+# =============================================================================
+# Predefined Values: TRS Capability Types — Implemented
+# =============================================================================
+
+trov:CanProvideInternetIsolation a trov:TRSCapability ;
+    rdfs:label "CanProvideInternetIsolation" ;
+    rdfs:comment "The TRS can isolate computations from network access during a TRP." .
+
+trov:CanRecordInternetAccess a trov:TRSCapability ;
+    rdfs:label "CanRecordInternetAccess" ;
+    rdfs:comment "The TRS can record all network accesses made during a TRP." .
+
+# =============================================================================
+# Predefined Values: TRS Capability Types — Under Discussion
+# =============================================================================
+
+trov:CanIsolateEnvironment a trov:TRSCapability ;
+    rdfs:label "CanIsolateEnvironment" ;
+    rdfs:comment "The TRS can prevent access to the host environment during a TRP (e.g., sandbox or container execution)." .
+
+trov:CanPreventAuthorIntervention a trov:TRSCapability ;
+    rdfs:label "CanPreventAuthorIntervention" ;
+    rdfs:comment "The TRS can prevent author intervention during a TRP (e.g., fully automated execution)." .
+
+trov:CanExcludeInputs a trov:TRSCapability ;
+    rdfs:label "CanExcludeInputs" ;
+    rdfs:comment "The TRS can exclude input data from a TRO produced during a TRP." .
+
+trov:CanExcludeOutputs a trov:TRSCapability ;
+    rdfs:label "CanExcludeOutputs" ;
+    rdfs:comment "The TRS can exclude output data from a TRO produced during a TRP." .
+
+trov:CanEnsureInputDataIncludedInTROPackage a trov:TRSCapability ;
+    rdfs:label "CanEnsureInputDataIncludedInTROPackage" ;
+    rdfs:comment "The TRS can ensure all input data is included in the TRO package." .
+
+trov:CanRequireInputDataExistsBeforeRun a trov:TRSCapability ;
+    rdfs:label "CanRequireInputDataExistsBeforeRun" ;
+    rdfs:comment "The TRS can require all input data exists prior to a TRP." .
+
+trov:CanRequireInputDataLocalBeforeRun a trov:TRSCapability ;
+    rdfs:label "CanRequireInputDataLocalBeforeRun" ;
+    rdfs:comment "The TRS can require all input data is stored locally prior to a TRP." .
+
+trov:CanEnsureInputDataPersistsAfterRun a trov:TRSCapability ;
+    rdfs:label "CanEnsureInputDataPersistsAfterRun" ;
+    rdfs:comment "The TRS can ensure all input data persists after a TRP." .
+
+trov:CanEnsureOutputDataIncludedInTROPackage a trov:TRSCapability ;
+    rdfs:label "CanEnsureOutputDataIncludedInTROPackage" ;
+    rdfs:comment "The TRS can ensure all output data is included in the TRO package." .
+
+trov:CanEnsureCodeIncludedInTROPackage a trov:TRSCapability ;
+    rdfs:label "CanEnsureCodeIncludedInTROPackage" ;
+    rdfs:comment "The TRS can ensure all custom code is included in the TRO package." .
+
+trov:CanRecordSoftwareEnvironment a trov:TRSCapability ;
+    rdfs:label "CanRecordSoftwareEnvironment" ;
+    rdfs:comment "The TRS can record a full description of the software environment." .
+
+trov:CanDetectInternetAccess a trov:TRSCapability ;
+    rdfs:label "CanDetectInternetAccess" ;
+    rdfs:comment "The TRS can detect Internet access during a TRP." .
+
+trov:CanEnforceInternetIsolation a trov:TRSCapability ;
+    rdfs:label "CanEnforceInternetIsolation" ;
+    rdfs:comment "The TRS can enforce Internet isolation during a TRP." .
+
+trov:CanPreventUserInteractionDuringRun a trov:TRSCapability ;
+    rdfs:label "CanPreventUserInteractionDuringRun" ;
+    rdfs:comment "The TRS can prevent user interaction during a TRP." .
+
+trov:CanEnforceCapabilitiesTechnically a trov:TRSCapability ;
+    rdfs:label "CanEnforceCapabilitiesTechnically" ;
+    rdfs:comment "The TRS can enforce all of its declared capabilities through technical means (as opposed to policy-based enforcement)." .
+
+# =============================================================================
+# Predefined Values: TRP Attribute Types
+# =============================================================================
+
+trov:InternetIsolation a trov:TRPAttribute ;
+    rdfs:label "InternetIsolation" ;
+    rdfs:comment "The TRP was conducted without network access." .
+
+trov:InternetAccessRecording a trov:TRPAttribute ;
+    rdfs:label "InternetAccessRecording" ;
+    rdfs:comment "All network accesses during the TRP were recorded." .
+
+# =============================================================================
+# Predefined Values: TRO Attribute Types
+# =============================================================================
+
+trov:IncludesAllInputData a trov:TROAttribute ;
+    rdfs:label "IncludesAllInputData" ;
+    rdfs:comment "The TRO composition includes all input data employed in creating the TRO." .
