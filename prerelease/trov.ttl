@@ -60,21 +60,25 @@ trov:TRPAttribute a rdfs:Class ;
 
 trov:wasAssembledBy a rdf:Property ;
     rdfs:label "wasAssembledBy" ;
+    rdfs:comment "Links a TRO to the TRS that produced it." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TrustedResearchSystem .
 
 trov:hasComposition a rdf:Property ;
     rdfs:label "hasComposition" ;
+    rdfs:comment "Links a TRO to its artifact composition." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:ArtifactComposition .
 
 trov:hasArrangement a rdf:Property ;
     rdfs:label "hasArrangement" ;
+    rdfs:comment "Links a TRO to an artifact arrangement." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:hasPerformance a rdf:Property ;
     rdfs:label "hasPerformance" ;
+    rdfs:comment "Links a TRO to a TRP it describes." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TrustedResearchPerformance .
 
@@ -89,36 +93,43 @@ trov:hasAttribute a rdf:Property ;
 
 trov:hasCapability a rdf:Property ;
     rdfs:label "hasCapability" ;
+    rdfs:comment "Links a TRS to a capability it declares." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range trov:TRSCapability .
 
 trov:publicKey a rdf:Property ;
     rdfs:label "publicKey" ;
+    rdfs:comment "The public key associated with the TRS. ASCII-armored GPG key." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
 trov:name a rdf:Property ;
     rdfs:label "name" ;
+    rdfs:comment "Short name for the TRS." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
 trov:owner a rdf:Property ;
     rdfs:label "owner" ;
+    rdfs:comment "Owner of the TRS." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
 trov:description a rdf:Property ;
     rdfs:label "description" ;
+    rdfs:comment "Description of the TRS." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
 trov:contact a rdf:Property ;
     rdfs:label "contact" ;
+    rdfs:comment "Contact email for the TRS." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
 trov:url a rdf:Property ;
     rdfs:label "url" ;
+    rdfs:comment "URL for the TRS." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range rdfs:Literal .
 
@@ -128,11 +139,13 @@ trov:url a rdf:Property ;
 
 trov:hasArtifact a rdf:Property ;
     rdfs:label "hasArtifact" ;
+    rdfs:comment "Links a composition or locus to an artifact." ;
     rdfs:domain trov:ArtifactComposition ;
     rdfs:range trov:ResearchArtifact .
 
 trov:hasFingerprint a rdf:Property ;
     rdfs:label "hasFingerprint" ;
+    rdfs:comment "Links a composition to its fingerprint." ;
     rdfs:domain trov:ArtifactComposition ;
     rdfs:range trov:CompositionFingerprint .
 
@@ -153,11 +166,13 @@ trov:mimeType a rdf:Property ;
 
 trov:hasLocus a rdf:Property ;
     rdfs:label "hasLocus" ;
+    rdfs:comment "Links an arrangement to one of its loci." ;
     rdfs:domain trov:ArtifactArrangement ;
     rdfs:range trov:ArtifactLocus .
 
 trov:hasLocation a rdf:Property ;
     rdfs:label "hasLocation" ;
+    rdfs:comment "Resource path for an artifact within an arrangement." ;
     rdfs:domain trov:ArtifactLocus ;
     rdfs:range rdfs:Literal .
 
@@ -167,31 +182,37 @@ trov:hasLocation a rdf:Property ;
 
 trov:wasConductedBy a rdf:Property ;
     rdfs:label "wasConductedBy" ;
+    rdfs:comment "Links a TRP to the TRS that conducted it." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:TrustedResearchSystem .
 
 trov:accessedArrangement a rdf:Property ;
     rdfs:label "accessedArrangement" ;
+    rdfs:comment "Links a TRP to an arrangement it read from." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:contributedToArrangement a rdf:Property ;
     rdfs:label "contributedToArrangement" ;
+    rdfs:comment "Links a TRP to an arrangement it wrote to." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:hasPerformanceAttribute a rdf:Property ;
     rdfs:label "hasPerformanceAttribute" ;
+    rdfs:comment "Links a TRP to a transparency attribute claimed for it." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:TRPAttribute .
 
 trov:startedAtTime a rdf:Property ;
     rdfs:label "startedAtTime" ;
+    rdfs:comment "When the performance began." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range rdfs:Literal .
 
 trov:endedAtTime a rdf:Property ;
     rdfs:label "endedAtTime" ;
+    rdfs:comment "When the performance ended." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range rdfs:Literal .
 
