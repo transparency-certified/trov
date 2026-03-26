@@ -116,6 +116,7 @@ trov:vocabularyVersion a rdf:Property ;
 
 trov:wasAssembledBy a rdf:Property ;
     rdfs:label "wasAssembledBy" ;
+    rdfs:comment "Links a TRO to the TRS that produced and signed it." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TrustedResearchSystem .
 
@@ -126,26 +127,31 @@ trov:createdWith a rdf:Property ;
 
 trov:wasTimestampedBy a rdf:Property ;
     rdfs:label "wasTimestampedBy" ;
+    rdfs:comment "Links a TRO to a TSA that timestamped the TRS signature." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TimeStampingAuthority .
 
 trov:hasComposition a rdf:Property ;
     rdfs:label "hasComposition" ;
+    rdfs:comment "Links a TRO to the composition of artifacts it describes." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:ArtifactComposition .
 
 trov:hasArrangement a rdf:Property ;
     rdfs:label "hasArrangement" ;
+    rdfs:comment "Links a TRO to an artifact arrangement it describes." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:hasPerformance a rdf:Property ;
     rdfs:label "hasPerformance" ;
+    rdfs:comment "Links a TRO to a TRP it describes." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TrustedResearchPerformance .
 
 trov:hasAttribute a rdf:Property ;
     rdfs:label "hasAttribute" ;
+    rdfs:comment "Links a TRO to a transparency attribute asserted for it." ;
     rdfs:domain trov:TransparentResearchObject ;
     rdfs:range trov:TROAttribute .
 
@@ -155,6 +161,7 @@ trov:hasAttribute a rdf:Property ;
 
 trov:hasCapability a rdf:Property ;
     rdfs:label "hasCapability" ;
+    rdfs:comment "Links a TRS to a capability it declares." ;
     rdfs:domain trov:TrustedResearchSystem ;
     rdfs:range trov:TRSCapability .
 
@@ -175,31 +182,37 @@ trov:customTerm a rdf:Property ;
 
 trov:wasConductedBy a rdf:Property ;
     rdfs:label "wasConductedBy" ;
+    rdfs:comment "Links a TRP to the TRS that conducted it." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:TrustedResearchSystem .
 
 trov:accessedArrangement a rdf:Property ;
     rdfs:label "accessedArrangement" ;
+    rdfs:comment "Links a TRP to an arrangement it read from." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:contributedToArrangement a rdf:Property ;
     rdfs:label "contributedToArrangement" ;
+    rdfs:comment "Links a TRP to an arrangement it wrote to." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:ArtifactArrangement .
 
 trov:hasPerformanceAttribute a rdf:Property ;
     rdfs:label "hasPerformanceAttribute" ;
+    rdfs:comment "Links a TRP to a transparency attribute claimed for it." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range trov:TRPAttribute .
 
 trov:startedAtTime a rdf:Property ;
     rdfs:label "startedAtTime" ;
+    rdfs:comment "When the performance began." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range rdfs:Literal .
 
 trov:endedAtTime a rdf:Property ;
     rdfs:label "endedAtTime" ;
+    rdfs:comment "When the performance ended." ;
     rdfs:domain trov:TrustedResearchPerformance ;
     rdfs:range rdfs:Literal .
 
@@ -209,11 +222,13 @@ trov:endedAtTime a rdf:Property ;
 
 trov:hasArtifact a rdf:Property ;
     rdfs:label "hasArtifact" ;
+    rdfs:comment "Links a composition to an artifact it contains." ;
     rdfs:domain trov:ArtifactComposition ;
     rdfs:range trov:ResearchArtifact .
 
 trov:hasFingerprint a rdf:Property ;
     rdfs:label "hasFingerprint" ;
+    rdfs:comment "Links a composition to its fingerprint." ;
     rdfs:domain trov:ArtifactComposition ;
     rdfs:range trov:CompositionFingerprint .
 
@@ -243,6 +258,7 @@ trov:mimeType a rdf:Property ;
 
 trov:hasArtifactLocation a rdf:Property ;
     rdfs:label "hasArtifactLocation" ;
+    rdfs:comment "Links an arrangement to one of its artifact locations." ;
     rdfs:domain trov:ArtifactArrangement ;
     rdfs:range trov:ArtifactLocation .
 
