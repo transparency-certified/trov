@@ -286,11 +286,13 @@ trov:warrantedBy a rdf:Property ;
 # Predefined Values: TRS Capability Types — Implemented
 # =============================================================================
 
-trov:CanProvideInternetIsolation a trov:TRSCapability ;
+trov:CanProvideInternetIsolation a rdfs:Class ;
+    rdfs:subClassOf trov:TRSCapability ;
     rdfs:label "CanProvideInternetIsolation" ;
     rdfs:comment "The TRS can isolate computations from network access during a TRP." .
 
-trov:CanRecordInternetAccess a trov:TRSCapability ;
+trov:CanRecordInternetAccess a rdfs:Class ;
+    rdfs:subClassOf trov:TRSCapability ;
     rdfs:label "CanRecordInternetAccess" ;
     rdfs:comment "The TRS can record all network accesses made during a TRP." .
 
@@ -298,11 +300,13 @@ trov:CanRecordInternetAccess a trov:TRSCapability ;
 # Predefined Values: TRP Attribute Types
 # =============================================================================
 
-trov:InternetIsolation a trov:TRPAttribute ;
+trov:InternetIsolation a rdfs:Class ;
+    rdfs:subClassOf trov:TRPAttribute ;
     rdfs:label "InternetIsolation" ;
     rdfs:comment "The TRP was conducted without network access." .
 
-trov:InternetAccessRecording a trov:TRPAttribute ;
+trov:InternetAccessRecording a rdfs:Class ;
+    rdfs:subClassOf trov:TRPAttribute ;
     rdfs:label "InternetAccessRecording" ;
     rdfs:comment "All network accesses during the TRP were recorded." .
 
@@ -310,6 +314,7 @@ trov:InternetAccessRecording a trov:TRPAttribute ;
 # Predefined Values: TRO Attribute Types
 # =============================================================================
 
-trov:IncludesAllInputData a trov:TROAttribute ;
+trov:IncludesAllInputData a rdfs:Class ;
+    rdfs:subClassOf trov:TROAttribute ;
     rdfs:label "IncludesAllInputData" ;
     rdfs:comment "The TRO composition includes all input data employed in creating the TRO." .
